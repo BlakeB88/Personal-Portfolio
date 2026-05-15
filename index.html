@@ -23,10 +23,16 @@
             --icon-bg: rgba(255,255,255,0.75);
             --hl: #b84b1a;
             --toggle-bg: rgba(0,0,0,0.06);
-            --orb1: rgba(220,140,100,0.18);
-            --orb2: rgba(140,120,220,0.14);
-            --orb3: rgba(90,160,200,0.12);
-            --orb4: rgba(100,190,160,0.1);
+            --orb1: rgba(230,120,60,0.2);
+            --orb2: rgba(220,160,50,0.16);
+            --orb3: rgba(210,80,60,0.14);
+            --orb4: rgba(225,140,70,0.12);
+            --b1: rgba(228,85,40,0.22);
+            --b2: rgba(218,128,45,0.2);
+            --b3: rgba(205,65,65,0.18);
+            --b4: rgba(222,160,40,0.2);
+            --b5: rgba(212,95,55,0.2);
+            --b6: rgba(196,60,85,0.18);
         }
 
         [data-theme="dark"] {
@@ -44,10 +50,16 @@
             --icon-bg: rgba(255,255,255,0.06);
             --hl: #e07040;
             --toggle-bg: rgba(255,255,255,0.07);
-            --orb1: rgba(200,100,60,0.12);
-            --orb2: rgba(100,80,200,0.1);
-            --orb3: rgba(60,120,180,0.09);
-            --orb4: rgba(60,160,130,0.08);
+            --orb1: rgba(50,110,200,0.14);
+            --orb2: rgba(80,160,210,0.11);
+            --orb3: rgba(70,185,160,0.1);
+            --orb4: rgba(90,95,210,0.1);
+            --b1: rgba(45,115,205,0.16);
+            --b2: rgba(65,165,200,0.14);
+            --b3: rgba(75,185,160,0.14);
+            --b4: rgba(85,95,215,0.14);
+            --b5: rgba(55,150,180,0.13);
+            --b6: rgba(95,125,215,0.14);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -100,6 +112,20 @@
             width: 350px; height: 350px;
             bottom: -60px; right: 10%;
             background: var(--orb4);
+        }
+
+        /* ── Bubbles ── */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            animation: bubble-float ease-in-out infinite;
+            transition: background 0.3s;
+        }
+
+        @keyframes bubble-float {
+            0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+            30%       { transform: translateY(-22px) translateX(7px) scale(1.04); }
+            65%       { transform: translateY(-10px) translateX(-6px) scale(0.97); }
         }
 
         /* ── Theme toggle ── */
@@ -440,12 +466,30 @@
 </head>
 <body>
 
-    <!-- Ambient orb background -->
+    <!-- Ambient orb + bubble background -->
     <div class="orbs">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
         <div class="orb orb-4"></div>
+
+        <!-- Large bubbles -->
+        <div class="bubble" style="width:190px;height:190px;top:-40px;left:6%;background:var(--b1);filter:blur(18px);animation-duration:16s;animation-delay:0s;"></div>
+        <div class="bubble" style="width:140px;height:140px;top:55%;right:12%;background:var(--b4);filter:blur(14px);animation-duration:18s;animation-delay:-5s;"></div>
+        <div class="bubble" style="width:160px;height:160px;bottom:-30px;left:28%;background:var(--b2);filter:blur(16px);animation-duration:14s;animation-delay:-9s;"></div>
+
+        <!-- Medium bubbles -->
+        <div class="bubble" style="width:90px;height:90px;top:18%;right:7%;background:var(--b2);filter:blur(10px);animation-duration:11s;animation-delay:-2s;"></div>
+        <div class="bubble" style="width:100px;height:100px;top:72%;left:5%;background:var(--b5);filter:blur(11px);animation-duration:13s;animation-delay:-7s;"></div>
+        <div class="bubble" style="width:80px;height:80px;top:8%;left:62%;background:var(--b3);filter:blur(9px);animation-duration:10s;animation-delay:-4s;"></div>
+        <div class="bubble" style="width:110px;height:110px;bottom:18%;right:4%;background:var(--b6);filter:blur(12px);animation-duration:15s;animation-delay:-11s;"></div>
+
+        <!-- Small bubbles -->
+        <div class="bubble" style="width:48px;height:48px;top:38%;left:18%;background:var(--b3);filter:blur(6px);animation-duration:9s;animation-delay:-3s;"></div>
+        <div class="bubble" style="width:38px;height:38px;top:25%;left:45%;background:var(--b6);filter:blur(5px);animation-duration:8s;animation-delay:-6s;"></div>
+        <div class="bubble" style="width:55px;height:55px;top:62%;right:28%;background:var(--b5);filter:blur(6px);animation-duration:12s;animation-delay:-1s;"></div>
+        <div class="bubble" style="width:30px;height:30px;top:48%;right:42%;background:var(--b1);filter:blur(4px);animation-duration:7s;animation-delay:-8s;"></div>
+        <div class="bubble" style="width:42px;height:42px;bottom:10%;left:52%;background:var(--b4);filter:blur(5px);animation-duration:10s;animation-delay:-5s;"></div>
     </div>
 
     <!-- Theme toggle -->
